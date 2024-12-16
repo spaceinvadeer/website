@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Guides - SchoolSteam</title>
+    <title>SchoolSteam - Learning Resources</title>
 
+    <!-- Google Fonts for styling -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Styles -->
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -15,13 +18,13 @@
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
+            text-align: center;
         }
 
         header {
             background-color: #003366;
             color: #fff;
             padding: 20px;
-            text-align: center;
         }
 
         header h1 {
@@ -31,42 +34,49 @@
 
         .content {
             padding: 40px 20px;
-            text-align: center;
         }
 
-        .terms-box {
+        .explanation-box {
             background-color: #fff;
-            padding: 30px;
+            padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
             width: 80%;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .terms-box h2 {
+        .explanation-box h2 {
             font-size: 28px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .terms-box p {
+        .explanation-box p {
             font-size: 18px;
             color: #666;
             line-height: 1.6;
         }
 
-        .back-link {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #003366;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .back-link:hover {
+        .download-buttons a {
+            background-color: #003366;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .download-buttons a:hover {
             background-color: #004080;
         }
 
@@ -74,7 +84,6 @@
             background-color: #003366;
             color: #fff;
             padding: 20px;
-            text-align: center;
             margin-top: 40px;
         }
 
@@ -93,31 +102,27 @@
 
     <!-- Header Section -->
     <header>
-        <h1>SchoolSteam</h1>
-        <p>Guides</p>
+        <h1>Welcome to SchoolSteam</h1>
+        <p>Your go-to resource for gaming materials</p>
     </header>
 
     <!-- Content Section -->
     <div class="content">
-        <div class="terms-box">
-            <h2>How to run exe's</h2>
-            <p>1. press windows key+r</p>
-            <p>2. type in: C:\Windows\SysWOW64 </p>
-            <p>3. find the folder called Tasks</p>
-            <p>4. create a new folder anywhere </p>
-            <p>5. create a shortcut for the new folder by right clicking it and clicking show more options </p>
-            <p>6. drag the folder not the shortcut into Tasks </p>
-            <p>7. use the shortcut to get to tasks </p>
-            <p>8. anything inside tasks will run </p>        
+        <!-- Explanation Box -->
+        <div class="explanation-box">
+            <h2>Welcome to Guides</h2>
+            <p>Learn how to do (almost) anything on your computer</p>
         </div>
 
-        <!-- Back to Main Page Link -->
-        <a href="http://schoolsteam.spaceinvadeer.com/" class="back-link">Back to Home</a>
+        <!-- Download Buttons -->
+        <div class="download-buttons">
+            <a href="exes.html">Learn how to run any .exe file</a>
+        </div>
     </div>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 SchoolSteam  |  <a href="terms.html">Terms of Service</a></p>
+        <p>&copy; 2024 SchoolSteam |  <a href="terms.html">Terms of Service</a></p>
     </footer>
 
 </body>

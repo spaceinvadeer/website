@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annoying Page</title>
+    <style>
+        body {
+            background-color: yellow;
+            color: red;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        h1 {
+            font-size: 80px;
+            text-align: center;
+            text-shadow: 5px 5px 10px green;
+        }
+
+        .flashing {
+            animation: flash 0.5s infinite;
+        }
+
+        @keyframes flash {
+            0% { color: red; }
+            50% { color: blue; }
+            100% { color: green; }
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            font-size: 40px;
+            color: white;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { left: 100%; }
+            100% { left: -100%; }
+        }
+
+        .popup {
+            display: none;
+        }
+    </style>
+    <script>
+        // This will pop up an alert every 3 seconds
+        function annoyingAlert() {
+            alert("ANNOUNCEMENT: You are stuck on this page!");
+            setTimeout(annoyingAlert, 3000);
+        }
+
+        // Open random popups every second
+        function randomPopups() {
+            window.open("https://www.example.com", "_blank");
+            setTimeout(randomPopups, 1000);
+        }
+
+        // Start the popup and alert loops
+        window.onload = function() {
+            annoyingAlert();
+            randomPopups();
+        };
+    </script>
+</head>
+<body>
+    <h1 class="flashing">Welcome to the Most Annoying Website Ever!</h1>
+    <div class="marquee">This page will never stop flashing and scrolling... ever!</div>
+
+    <p>Click on anything, it won't help. Just stay here and suffer!</p>
+    
+    <!-- Hidden popup that keeps triggering-->
+    <div class="popup">This is a hidden popup that may appear at any moment.</div>
+
+    <audio autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+</body>
+</html>

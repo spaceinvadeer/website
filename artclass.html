@@ -109,6 +109,22 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Fullscreen Button Style */
+        .fullscreen-button {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .fullscreen-button:hover {
+            background-color: #004080;
+        }
     </style>
 </head>
 
@@ -123,20 +139,41 @@
     <div class="content">
         <!-- Explanation Box -->
         <div class="explanation-box">
-            <h2>Unblocked Google</h2>
-            <p>It's unblocked Google! Source: Artclass</p>
+            <h2>Artclass</h2>
+            <p>It has unblocked Google and many more things</p>
         </div>
 
         <!-- Embed Section -->
         <div class="embed">
-            <embed src="https://jkdsfhajsdgwhes.artclass.site" style="width:200%; height:500px;" />
+            <embed id="embedContent" src="https://jkdsfhajsdgwhes.artclass.site" style="width:100%; height:400px;" />
         </div>
+
+        <!-- Fullscreen Button -->
+        <a herf="schoolsteam.spaceinvadeer.com">Go back</a>
+        <button class="fullscreen-button" onclick="toggleFullscreen()">Go Fullscreen</button>
     </div>
 
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 SchoolSteam | <a href="terms.html">Terms of Service</a></p>
     </footer>
+
+    <!-- JavaScript for Fullscreen -->
+    <script>
+        function toggleFullscreen() {
+            var embedElement = document.getElementById("embedContent");
+
+            if (embedElement.requestFullscreen) {
+                embedElement.requestFullscreen();
+            } else if (embedElement.mozRequestFullScreen) { // Firefox
+                embedElement.mozRequestFullScreen();
+            } else if (embedElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                embedElement.webkitRequestFullscreen();
+            } else if (embedElement.msRequestFullscreen) { // IE/Edge
+                embedElement.msRequestFullscreen();
+            }
+        }
+    </script>
 
 </body>
 

@@ -96,6 +96,39 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* New Styles for Terms Checkbox */
+        .terms-container {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .terms-checkbox {
+            margin-right: 10px;
+        }
+
+        .terms-container p {
+            display: inline;
+        }
+
+        .submit-button {
+            background-color: #003366;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-block;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .submit-button.enabled {
+            opacity: 1;
+            pointer-events: all;
+        }
     </style>
 </head>
 
@@ -111,13 +144,19 @@
         <!-- Explanation Box -->
         <div class="explanation-box">
             <h2>Any Desk</h2>
-            <p>With Any Desk, you can remotly connect and access any computer (hint: your home one) with low latency so it works well for gaming and anything else.</p>
+            <p>With Any Desk, you can remotely connect and access any computer (hint: your home one) with low latency so it works well for gaming and anything else.</p>
+        </div>
+
+        <!-- Terms Checkbox Section -->
+        <div class="terms-container">
+            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+            <p>I have read the instructions and agree to the <a href="terms.html" target="_blank">terms and conditions</a>.</p>
         </div>
 
         <!-- Download Buttons -->
         <div class="download-buttons">
-	    <a href="http://schoolsteam.spaceinvadeer.com/" class="back-link"><--Back</a>
-            <a href="AnyDesk.exe" download>Download Any Desk</a>
+            <a href="http://schoolsteam.spaceinvadeer.com/" class="back-link"><--Back</a>
+            <a href="AnyDesk.exe" download class="submit-button" id="download-button">Download Any Desk</a>
         </div>
     </div>
 
@@ -125,6 +164,23 @@
     <footer>
         <p>&copy; 2024 SchoolSteam |  <a href="terms.html">Terms of Service</a></p>
     </footer>
+
+    <script>
+        // Wait for the page to load completely
+        window.addEventListener("DOMContentLoaded", function() {
+            const checkbox = document.getElementById("terms-checkbox");
+            const downloadButton = document.getElementById("download-button");
+
+            // Event listener for checkbox
+            checkbox.addEventListener('change', function() {
+                if (checkbox.checked) {
+                    downloadButton.classList.add("enabled"); // Enable the button
+                } else {
+                    downloadButton.classList.remove("enabled"); // Disable the button
+                }
+            });
+        });
+    </script>
 
 </body>
 

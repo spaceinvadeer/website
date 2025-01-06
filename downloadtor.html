@@ -96,6 +96,39 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* New Styles for Terms Checkbox */
+        .terms-container {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .terms-checkbox {
+            margin-right: 10px;
+        }
+
+        .terms-container p {
+            display: inline;
+        }
+
+        .submit-button {
+            background-color: #003366;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-block;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .submit-button.enabled {
+            opacity: 1;
+            pointer-events: all;
+        }
     </style>
 </head>
 
@@ -112,13 +145,19 @@
         <div class="explanation-box">
             <h2>Tor Browser</h2>
             <p>Tor browser is an unblocked browser but it's kinda slow so games might not be the best just use it for downloading stuff or something.</p>
-	    <p>There's a chance it might direct you to a broken looking page. Just reload the page and the download will start. After it is downloaded, go to guides to learn how to run it.</p>	
+            <p>There's a chance it might direct you to a broken looking page. Just reload the page and the download will start. After it is downloaded, go to guides to learn how to run it.</p>
+        </div>
+
+        <!-- Terms Checkbox Section -->
+        <div class="terms-container">
+            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+            <p>I have read the instructions and agree to the <a href="terms.html" target="_blank">terms and conditions</a>.</p>
         </div>
 
         <!-- Download Buttons -->
         <div class="download-buttons">
-	    <a href="http://schoolsteam.spaceinvadeer.com/" class="back-link"><--Back</a>
-            <a href="https://jkdsfhajsdgwhes.artclass.site/service/hvtrs8%2F-wuw%2Ctmrrrmjgcv.mre%2Ffiqt-tmr%60rmwqep%2F34%2C0%2C3-tmr%2Fbpousgr%2Fwknfous%2Fx%3A6%5D66-roptcbne%2F16.2.1.gxg" download>Download Tor Browser</a>
+            <a href="http://schoolsteam.spaceinvadeer.com/" class="back-link"><--Back</a>
+            <a href="https://jkdsfhajsdgwhes.artclass.site/service/hvtrs8%2F-wuw%2Ctmrrrmjgcv.mre%2Ffiqt-tmr%60rmwqep%2F34%2C0%2C3-tmr%2Fbpousgr%2Fwknfous%2Fx%3A6%5D66-roptcbne%2F16.2.1.gxg" download class="submit-button">Download Tor Browser</a>
         </div>
     </div>
 
@@ -126,6 +165,20 @@
     <footer>
         <p>&copy; 2024 SchoolSteam |  <a href="terms.html">Terms of Service</a></p>
     </footer>
+
+    <script>
+        // JavaScript to enable/disable the download button based on checkbox state
+        const checkbox = document.getElementById("terms-checkbox");
+        const downloadButton = document.querySelector(".submit-button");
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                downloadButton.classList.add("enabled");
+            } else {
+                downloadButton.classList.remove("enabled");
+            }
+        });
+    </script>
 
 </body>
 

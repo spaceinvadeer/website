@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Media from URL</title>
+
+    <!-- Google Fonts for styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Styles -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .content {
+            padding: 40px 20px;
+        }
+
+        .embed-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004080;
+        }
+
+        iframe, img {
+            width: 80%;
+            max-width: 700px;
+            height: 400px;
+            border: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .embed-container .link {
+            display: block;
+            margin-top: 20px;
+            color: #003366;
+            text-decoration: none;
+        }
+
+        .embed-container .link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>SchoolSteam</h1>
+    </header>
+
+    Use this to bypass the snoring dog NOT the annoying gnomes
+<!-- Content Section -->
+    <div class="content">
+        <div class="embed-container">
+            <input type="text" id="embedUrl" placeholder="Enter a URL">
+            <button onclick="embedContent()">Go</button>
+        </div>
+
+        <div id="embeddedContent"></div>
+
+        <!-- Go Back Button (styled as the fullscreen button) -->
+        <button class="go-back-button" onclick="window.location.href='/'">Go Back</button>
+
+        <!-- Fullscreen Button -->
+        <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy;2024 SchoolSteam | <a href="terms">Terms of Service</a></p>
+    </footer>
+
+    <!-- JavaScript for Embed Logic -->
+    <script>
+        function embedContent() {
+            let url = document.getElementById('embedUrl').value;
+
+            // Check if the URL starts with 'http://' or 'https://'. If not, add 'https://'.
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+
+            const embeddedContentDiv = document.getElementById('embeddedContent');
+
+            // Clear previous embedded content
+            embeddedContentDiv.innerHTML = '';
+
+            // Check if it's an image URL
+            if (url.match(/\.(jpeg|jpg|gif|png)$/)) {
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = "Embedded Image";
+                embeddedContentDiv.appendChild(img);
+            } 
+            // Check if it's a YouTube video URL
+            else if (url.match(/https:\/\/www\.youtube\.com\/watch\?v=[A-Za-z0-9_-]+/)) {
+                const videoId = url.split('v=')[1].split('&')[0];
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.setAttribute('allowfullscreen', 'true');
+                embeddedContentDiv.appendChild(iframe);
+            }
+            // Check if it's a generic URL that can be embedded in iframe (e.g., Vimeo)
+            else if (url.match(/^https?:\/\//)) {
+                const iframe = document.createElement('iframe');
+                iframe.src = url;
+                iframe.setAttribute('width', '80%');
+                iframe.setAttribute('height', '400px');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', 'true');
+                embeddedContentDiv.appendChild(iframe);
+            } else {
+                embeddedContentDiv.innerHTML = "<p>Invalid URL. Please enter a valid image, video, or embeddable link.</p>";
+            }
+        }
+
+        // JavaScript for Fullscreen
+        function toggleFullscreen() {
+            var embedElement = document.querySelector("#embeddedContent iframe, #embeddedContent img");
+
+            if (embedElement && embedElement.requestFullscreen) {
+                embedElement.requestFullscreen();
+            } else if (embedElement && embedElement.mozRequestFullScreen) { // Firefox
+                embedElement.mozRequestFullScreen();
+            } else if (embedElement && embedElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                embedElement.webkitRequestFullscreen();
+            } else if (embedElement && embedElement.msRequestFullscreen) { // IE/Edge
+                embedElement.msRequestFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>

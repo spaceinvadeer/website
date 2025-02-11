@@ -1,1 +1,1 @@
-go to schoolsteam.spaceinvadeer.com
+go to spaceinvadeer.com

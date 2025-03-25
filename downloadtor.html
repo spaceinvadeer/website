@@ -97,7 +97,6 @@
             text-decoration: underline;
         }
 
-        /* New Styles for Terms Checkbox */
         .terms-container {
             margin: 20px 0;
             font-size: 18px;
@@ -157,27 +156,32 @@
         <!-- Download Buttons -->
         <div class="download-buttons">
             <a href="/" class="back-link"><--Back</a>
-            <a href="https://jkdsfhajsdgwhes.artclass.site/service/hvtrs8%2F-wuw%2Ctmrrrmjgcv.mre%2Ffiqt-tmr%60rmwqep%2F34%2C0%2C4-tmr%2Fbpousgr%2Fwknfous%2Fx%3A6%5D66-roptcbne%2F16.2.6.gxg" download class="submit-button">Download Tor Browser</a>
-            <a href="tor-browser-windows-x86_64-portable-14.0.7.exe.part1" download class="submit-button" id="download-button">Part 1</a>
+            <a href="tor-browser-windows-x86_64-portable-14.0.7.exe.part1" download class="submit-button" id="part1">Part 1</a>
+            <a href="tor-browser-windows-x86_64-portable-14.0.7.exe.part2" download class="submit-button" id="part2">Part 2</a>
+            <a href="tor-browser-windows-x86_64-portable-14.0.7.exe.part3" download class="submit-button" id="part3">Part 3</a>
+            <a href="tor-browser-windows-x86_64-portable-14.0.7.exe.part4" download class="submit-button" id="part4">Part 4</a>
+            <a href="tor-browser-windows-x86_64-portable-14.0.7.exe.part5" download class="submit-button" id="part5">Part 5</a>
         </div>
     </div>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 SchoolSteam |  <a href="terms">Terms of Service</a></p>
+        <p>&copy; 2024 SchoolSteam | <a href="terms">Terms of Service</a></p>
     </footer>
 
     <script>
-        // JavaScript to enable/disable the download button based on checkbox state
+        // JavaScript to enable/disable the download buttons based on checkbox state
         const checkbox = document.getElementById("terms-checkbox");
-        const downloadButton = document.querySelector(".submit-button");
+        const downloadButtons = document.querySelectorAll(".submit-button");
 
-        checkbox.addEventListener('change', function() {
-            if (checkbox.checked) {
-                downloadButton.classList.add("enabled");
-            } else {
-                downloadButton.classList.remove("enabled");
-            }
+        checkbox.addEventListener('change', function () {
+            downloadButtons.forEach(button => {
+                if (checkbox.checked) {
+                    button.classList.add("enabled");
+                } else {
+                    button.classList.remove("enabled");
+                }
+            });
         });
     </script>
 

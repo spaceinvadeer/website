@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More CCPorted Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #ffffff;
+            color: #4facfe;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        button:hover {
+            background: #00f2fe;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Finding URL</h1>
+        <button id="redirectButton" style="display: none;">URL Found!</button>
+    </div>
+
+    <script>
+        fetch("https://raw.githubusercontent.com/spaceinvadeer/more-ccported/gh-pages/CNAME")
+        .then(response => response.text())
+        .then(url => {
+            url = url.trim();
+            if (url) {
+                let button = document.getElementById("redirectButton");
+                button.style.display = "block";
+                button.onclick = () => window.location.href = "https://" + url;
+            }
+        })
+        .catch(error => console.error("Error fetching the URL:", error));
+    </script>
+
+</body>
+</html>
